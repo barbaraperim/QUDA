@@ -1,0 +1,50 @@
+<form [formGroup]="filterFormGroup">
+    <ng-container *ngFor="let filter of filters">
+        <ng-container *ngIf="filter.id === 'locale'"> 
+            <mat-form-field appearance="fill">
+                <mat-label>Locale</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let item of filter.values" [value]="item.value">
+                    {{item.name}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </ng-container>
+    
+        <ng-container *ngIf="filter.id === 'country'"> 
+            <mat-form-field appearance="fill">
+                <mat-label>Country</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let item of filter.values" [value]="item.value">
+                    {{item.name}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </ng-container>
+    
+        <ng-container *ngIf="filter.id === 'timestamp'"> 
+            <mat-form-field>
+                <input matInput [formControlName]="filter.id" type="datetime-local" placeholder="Timestamp">
+            </mat-form-field>
+        </ng-container>
+            
+        <ng-container *ngIf="filter.id === 'limit'"> 
+            <mat-form-field>
+                <input type="number" class="form-control" matInput name="limit" 
+                        placeholder="Limit" [formControlName]="filter.id">
+            </mat-form-field>
+        </ng-container>
+    
+        <ng-container *ngIf="filter.id === 'offset'"> 
+            <mat-form-field>
+                <input type="number" class="form-control" matInput name="offset" 
+                        placeholder="Offset" [formControlName]="filter.id">
+            </mat-form-field>
+        </ng-container>
+    </ng-container>
+   
+    <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+</form>

@@ -1,0 +1,9 @@
+<div>
+    <app-filter *ngIf="filters" [filters]="filters" 
+        [filterFormGroup]="filterFormGroup">
+    </app-filter>
+
+    <app-playlists-list [playlists]="playlists">
+
+    </app-playlists-list>
+</div>
